@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ `OCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -509,6 +509,7 @@ onkeyup="searchStudent()"
 
 
 <script>
+
 // Data extracted from Result Checker PIN records
 const students = [
   { name: "GODWIN FRANCE", class: "N/A", pin: "Yims001a", file: "GodwinFrance.html" },
@@ -586,114 +587,78 @@ const students = [
   { name: "AJAO IYANUOLUWA", class: "N/A", pin: "Yimegrforever!", file: "AJAOIYANUOLUWA.html" },
   { name: "ABRAHAM JOSHUA", class: "N/A", pin: "Yimrastakokiamgwsila&dfoever!", file: "ABRAHAMJOSHUA.html" }
 ];
-let filteredStudents=[];
 
-function loadStudents(){
+let filteredStudents = [];
 
-filteredStudents=[...students];
+function loadStudents() {
+  filteredStudents = [...students];
+  displayStudents(filteredStudents);
 
-displayStudents(filteredStudents);
+  const totalStudentsEl = document.getElementById("totalStudents");
+  const totalResultsEl = document.getElementById("totalResults");
+  const totalPinsEl = document.getElementById("totalPins");
 
-document.getElementById("totalStudents").innerHTML=students.length;
-
-document.getElementById("totalResults").innerHTML=students.length;
-
-document.getElementById("totalPins").innerHTML=students.length;
-
+  if (totalStudentsEl) totalStudentsEl.innerHTML = students.length;
+  if (totalResultsEl) totalResultsEl.innerHTML = students.length;
+  if (totalPinsEl) totalPinsEl.innerHTML = students.length;
 }
 
-function displayStudents(list){
+function displayStudents(list) {
+  const table = document.getElementById("studentTable");
+  if (!table) return;
 
-    const table = document.getElementById("studentTable");
+  table.innerHTML = "";
 
-    table.innerHTML = "";
-
-    list.forEach((student,index)=>{
-
-        table.innerHTML += `
-
-        <tr>
-
-            <td>${index + 1}</td>
-
-            <td>${student.name}</td>
-
-            <td>${student.class}</td>
-
-            <td>${student.pin}</td>
-
-            <td>
-
-                <button class="view-btn" onclick="openResult('${student.file}')">
-
-                    <i class="fa-solid fa-eye"></i>
-
-                    View
-
-                </button>
-
-            </td>
-
-            <td>
-
-                <a
-                    class="download-btn"
-                    href="${student.file}"
-                    download>
-
-                    <i class="fa-solid fa-download"></i>
-
-                    Download
-
-                </a>
-
-            </td>
-
-        </tr>
-
-        `;
-
-    });
-
-}
-function openResult(file){
-
-    window.open(file, "_blank");
-
-}
-function searchStudent(){
-
-let keyword=document.getElementById("search").value.toLowerCase();
-
-filteredStudents=students.filter(student=>
-
-student.name.toLowerCase().includes(keyword)
-
-||
-
-student.class.toLowerCase().includes(keyword)
-
-||
-
-student.pin.toLowerCase().includes(keyword)
-
-);
-
-displayStudents(filteredStudents);
-
+  list.forEach((student, index) => {
+    table.innerHTML += `
+      <tr>
+        <td>${index + 1}</td>
+        <td>${student.name}</td>
+        <td>${student.class}</td>
+        <td>${student.pin}</td>
+        <td>
+          <button class="view-btn" onclick="openResult('${student.file}')">
+            <i class="fa-solid fa-eye"></i> View
+          </button>
+        </td>
+        <td>
+          <a class="download-btn" href="${student.file}" download>
+            <i class="fa-solid fa-download"></i> Download
+          </a>
+        </td>
+      </tr>
+    `;
+  });
 }
 
-function logout(){
-
-if(confirm("Logout Admin Officer?")){
-
-window.location="admin-login.html";
-
+function openResult(file) {
+  window.open(file, "_blank");
 }
 
+function searchStudent() {
+  const searchInput = document.getElementById("search");
+  if (!searchInput) return;
+
+  let keyword = searchInput.value.toLowerCase();
+
+  filteredStudents = students.filter(
+    (student) =>
+      student.name.toLowerCase().includes(keyword) ||
+      student.class.toLowerCase().includes(keyword) ||
+      student.pin.toLowerCase().includes(keyword)
+  );
+
+  displayStudents(filteredStudents);
 }
 
-loadStudents();
+function logout() {
+  if (confirm("Logout Admin Officer?")) {
+    window.location = "admin-login.html";
+  }
+}
+
+// Automatically load student records when the page loads
+document.addEventListener("DOMContentLoaded", loadStudents);
 
 
 </script>
