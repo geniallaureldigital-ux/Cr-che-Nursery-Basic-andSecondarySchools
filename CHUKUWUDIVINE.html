@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Student Result Slip</title>
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet" href="report.css" />
+  </head>
+
+  <body>
+    <div class="top-buttons">
+
+    <button onclick="closeResult()" class="close-btn">
+
+        <i class="fa-solid fa-xmark"></i>
+
+        Close Result
+
+    </button>
+
+</div>
+    <div class="top-bar">
+    <button onclick="window.print()" class="print-btn">
+        Print Result
+    </button>
+</div>
+<div class="header">
+
+    <!-- SCHOOL LOGO -->
+    <div class="left-panel">
+        <img src="data/ChukwuDivine.png"
+             alt="School Logo"
+             class="logo">
+    </div>
+
+    <!-- SCHOOL DETAILS -->
+    <div class="center-panel">
+
+        <div class="school-details">
+            <h1>Genial Laurel School</h1>
+            <h3>Creche, K.G Nursery, Basic & Secondary School</h3>
+
+            <p><strong>STUDENT ACADEMIC REPORT</strong></p>
+
+            
+        </div>
+
+        <div class="student-info">
+
+            <div><strong>Name:</strong>CHUKUWU DIVINE</div>
+            <div><strong>Admission No:</strong></div>
+            <div><strong>Class:</strong> Primary 1</div>
+            <div><strong>Sex:</strong> </div>
+            <div><strong>Age:</strong> </div>
+            <div><strong>Term:</strong> Third Term</div>
+            <div><strong>Session:</strong> 2025/2026</div>
+            <div><strong>Position:</strong> </div>
+
+        </div>
+
+    </div>
+
+    <!-- STUDENT PASSPORT -->
+    <div class="right-panel">
+        <img src="data/glogo.png"
+             alt="Student Passport"
+             class="passport">
+    </div>
+
+</div>
+ 
+  
+
+<div class="result-body">
+
+    <!-- ================= LEFT SIDE ================= -->
+    <div class="academic-section">
+
+        <h3>ACADEMIC PERFORMANCE</h3>
+
+        <table class="subject-table">
+
+    <thead>
+     <tr>
+    <th>Subject</th>
+     <th>CA<br>(40)</th>
+     <th>Exam<br>(60)</th>
+    <th>Total<br>(100)</th>
+    <th>Grade</th>
+    <th>Remark</th>
+    </tr>
+  </thead>
+   <tbody>
+   <tr>
+  <td>English Language</td>
+  <td>33</td>
+  <td>50</td>
+  <td>83</td>
+  <td>B</td>
+  <td>V.Good</td>
+  </tr>
+  <tr>
+  <td>Literature- in- English</td>
+  <td>34</td>
+  <td>60</td>
+  <td>84</td>
+  <td>B</td>
+  <td>V.Good</td>
+  </tr>
+  <tr>
+ <td>Pre vocational studies</td>
+ <td>36</td>
+ <td>56</td>
+ <td>92</td>
+ <td>A</td>
+ <td>Excellent</td>
+  </tr>
+<tr>
+  <td>Computer Science</td>
+  <td>38</td>
+  <td>58</td>
+  <td>96</td>
+  <td>A</td>
+  <td>Excellent</td>
+</tr>
+<tr>
+  <td>Basic Science & Technology</td>
+  <td>36</td>
+  <td>46</td>
+  <td>82</td>
+  <td>B</td>
+  <td>V.Good</td>
+</tr>
+<tr>
+<td>Mathematics</td>
+  <td>32</td>
+  <td>52</td>
+  <td>84</td>
+  <td>B</td>
+  <td>V.Good</td>
+  </tr>
+<tr>
+ </tr>
+<tr>
+  <td>Quantitative Apptitude</td>
+  <td>36</td>
+  <td>58</td>
+  <td>94</td>
+  <td>A</td>
+  <td>Excellent</td>
+</tr>
+<tr>
+  <td>Verbal Apptitude</td>
+  <td>34</td>
+  <td>52</td>
+  <td>86</td>
+  <td>A</td>
+  <td>Excellent</td>
+</tr>
+<tr>
+  <td>Cultural & Creative Arts</td>
+  <td>30</td>
+  <td>52</td>
+  <td>82</td>
+  <td>B</td>
+  <td>V.Good</td>
+</tr>
+
+<tr>
+  <td>HandWriting</td>
+  <td>30</td>
+  <td>45</td>
+  <td>75</td>
+  <td>B</td>
+  <td>V.Good</td>
+</tr>
+<tr>
+  <td>Christian Religious Studies</td>
+  <td>38</td>
+  <td>58</td>
+  <td>96</td>
+  <td>A</td>
+  <td>Excellent</td>
+</tr>
+<tr>
+  <td>National Value Education</td>
+  <td>38</td>
+  <td>58</td>
+  <td>96</td>
+  <td>A</td>
+  <td>Excellent</td>
+</tr>
+ </tbody>
+</table>
+ <!-- =========================
+            COMMENTS
+  ========================== -->
+
+         <div class="comments-section">
+          <div class="comment-box">
+          <h3>Class Teacher's Comment</h3>
+          <p>Keep shinning my boy, Keep it up!</p>
+        </div>
+
+        <div class="comment-box">
+          <h3>Head Teacher's Comment</h3>
+          <p>A Brilliant performance. Keep it upx
+            !</p>
+        </div>
+        
+      </div>
+       <!-- Rating Guide -->
+      <div class="rating-guide">
+        <strong>Rating Guide:</strong>
+        A = Excellent | B = Very Good | C = Good | D = Fair | E = Poor
+      </div>       
+    </div>
+
+   
+      
+
+      
+    <!-- ================= RIGHT SIDE ================= -->
+    <div class="side-panel">
+
+        <!-- AFFECTIVE DOMAIN -->
+        <div class="domain-box">
+
+            <h3>AFFECTIVE DOMAIN</h3>
+
+            <table class="domain-table">
+
+                <tr>
+                    <th>Trait</th>
+                    <th>Rating</th>
+                </tr>
+
+                <tr><td>Punctuality</td><td>EXCELLENT</td></tr>
+                <tr><td>Politeness</td><td>EXCELLENT</td></tr>
+                <tr><td>Honesty</td><td>EXCELLENT</td></tr>
+                <tr><td>Book Management</td><td>EXCELLENT</td></tr>
+                <tr><td>Self-Control</td><td>EXCELLENT</td></tr>
+                <tr><td>Co-operation</td><td>EXCELLENT</td></tr>
+
+            </table>
+
+        </div>
+
+        <!-- PSYCHOMOTOR DOMAIN -->
+        <div class="domain-box">
+
+            <h3>PSYCHOMOTOR DOMAIN</h3>
+
+            <table class="domain-table">
+
+                <tr>
+                    <th>Skill</th>
+                    <th>Rating</th>
+                </tr>
+
+                <tr><td>Drawing</td><td>EXCELLENT</td></tr>
+                <tr><td>Sports</td><td>EXCELLENT</td></tr>
+                <tr><td>Alertness</td><td>EXCELLENT</td></tr>
+                <tr><td>Cleanliness</td><td>EXCELLENT</td></tr>
+                <tr><td>Handwriting</td><td>EXCELLENT</td></tr>
+                <tr><td>Fluency</td><td>EXCELLENT</td></tr>
+
+            </table>
+                    <!-- EXAMINATION SUMMARY -->
+             <div class="summary-box">
+
+            <h3>EXAMINATION SUMMARY</h3>
+
+            <table class="domain-table">
+
+                <tr><td>Total Score</td><td>1059</td></tr>
+                <tr><td>Average</td><td>87.6</td></tr>
+                <tr><td>Position</td>88%<td></td></tr>
+                <tr><td>Grade</td><td>EXCELLENT</td></tr>
+                <tr><td>Attendance</td><td>80</td></tr>
+
+            </table>
+            <div class="signature-section">
+        <div class="signature-box">
+          <img
+            src="data/class-teacher-sign.png"
+            alt="Class Teacher Signature"
+            class="signature"
+          />
+
+          <hr />
+
+          <h4>:MISS PRECIOUS OKEZIE</h4>
+          <p>Class Teacher</p>
+        </div>
+<!-- =========================
+     SIGNATURE SECTION
+========================== -->
+
+        <div class="signature-box">
+          <img
+            src="data/head-teacher-sign.png"
+            alt="Head Teacher Signature"
+            class="signature"
+          />
+
+          <hr />
+
+          <h4>Mrs Ekoba Joy</h4>
+          <p>Head Teacher</p>
+        </div>
+      </div>
+        </div>
+
+    </div>      
+
+    </div> 
+     
+     <script>
+
+function closeResult(){
+
+    // If the page was opened from the dashboard in a new tab,
+    // this closes it.
+    window.close();
+
+}
+
+</script> 
+  
+  </body>
+</html>

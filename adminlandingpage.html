@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+
+    <title>Genial Laurel School Portal</title>
+
+    <!-- CSS -->
+    <style>
+      .menu a{
+    position:relative;
+    overflow:hidden;
+}
+
+.ripple{
+    position:absolute;
+    width:20px;
+    height:20px;
+    background:rgba(255,255,255,.6);
+    border-radius:50%;
+    transform:translate(-50%,-50%);
+    animation:ripple .7s linear;
+    pointer-events:none;
+}
+
+@keyframes ripple{
+
+    from{
+        width:0;
+        height:0;
+        opacity:.8;
+    }
+
+    to{
+        width:400px;
+        height:400px;
+        opacity:0;
+    }
+
+}
+
+.loaded{
+    animation:fadeIn .8s ease;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}    
+
+
+
+
+   /* ==========================================
+   GLOBAL RESET & VARIABLES
+=========================================== */
+:root {
+  --primary-color: #0f172a;      /* Deep Navy */
+  --accent-color: #f59e0b;       /* Gold Accent */
+  --accent-hover: #d97706;
+  --glass-bg: rgba(255, 255, 255, 0.12);
+  --glass-border: rgba(255, 255, 255, 0.25);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  --text-main: #ffffff;
+  --text-sub: #e2e8f0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #0f172a, #1e1b4b, #31103f, #0284c7);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  overflow-x: hidden;
+  position: relative;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ==========================================
+   BACKGROUND OVERLAY & FLOATING SHAPES
+=========================================== */
+.background-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floating-shapes span {
+  position: fixed;
+  display: block;
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: 20%;
+  bottom: -150px;
+  animation: floatUp 20s linear infinite;
+  z-index: 0;
+}
+
+.floating-shapes span:nth-child(1) { left: 10%; width: 90px; height: 90px; animation-duration: 18s; }
+.floating-shapes span:nth-child(2) { left: 25%; width: 50px; height: 50px; animation-delay: 2s; animation-duration: 12s; }
+.floating-shapes span:nth-child(3) { left: 60%; width: 120px; height: 120px; animation-delay: 4s; }
+.floating-shapes span:nth-child(4) { left: 75%; width: 60px; height: 60px; animation-duration: 15s; }
+.floating-shapes span:nth-child(5) { left: 90%; width: 100px; height: 100px; animation-delay: 1s; }
+
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  20% { opacity: 0.6; }
+  100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+}
+
+/* ==========================================
+   PAGE LOADER
+=========================================== */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0f172a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.loader-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loader-content img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.5));
+}
+
+.loader-content h2 {
+  font-size: 22px;
+  letter-spacing: 2px;
+  color: var(--accent-color);
+  margin-bottom: 5px;
+}
+
+.loader-content p {
+  font-size: 13px;
+  color: var(--text-sub);
+  margin-bottom: 20px;
+}
+
+.loading-bar {
+  width: 220px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.loading-progress {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+  border-radius: 10px;
+  animation: loadProgress 2.2s ease forwards;
+}
+
+@keyframes loadProgress {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+/* ==========================================
+   MAIN CONTAINER & HEADER
+=========================================== */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 40px auto;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+header {
+  margin-bottom: 30px;
+}
+
+.logo-box {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 15px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--glass-shadow);
+}
+
+.logo-box img {
+  width: 95px;
+  height: 95px;
+  object-fit: fill;
+  border-radius: 50%;
+}
+
+header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--text-main);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+header p {
+  font-size: 14px;
+  color: var(--accent-color);
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+/* ==========================================
+   WELCOME SECTION
+=========================================== */
+.welcome {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 20px 30px;
+  margin-bottom: 35px;
+  box-shadow: var(--glass-shadow);
+  display: inline-block;
+}
+
+.welcome h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.welcome p {
+  font-size: 13px;
+  color: var(--text-sub);
+  margin-top: 4px;
+}
+
+/* ==========================================
+   NAVIGATION MENU (GRID)
+=========================================== */
+.menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.menu a {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 14px;
+  padding: 22px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  color: var(--text-main);
+  box-shadow: var(--glass-shadow);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.menu a i {
+  font-size: 22px;
+  color: var(--accent-color);
+  width: 45px;
+  height: 45px;
+  background: rgba(245, 158, 11, 0.15);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.menu a span {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Menu Hover Effect */
+.menu a:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+}
+
+.menu a:hover i {
+  transform: scale(1.1) rotate(5deg);
+  background: var(--accent-color);
+  color: #fff;
+}
+
+/* ==========================================
+   FOOTER
+=========================================== */
+footer {
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--glass-border);
+  position: relative;
+  z-index: 1;
+}
+
+footer p {
+  font-size: 13px;
+  color: var(--text-sub);
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+=========================================== */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 24px;
+  }
+
+  .menu {
+    grid-template-columns: 1fr;
+  }
+
+  .welcome {
+    width: 100%;
+    padding: 15px;
+  }
+}
+     
+    </style>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ==========================================
+                PAGE LOADER
+=========================================== -->
+
+<div id="loader">
+
+    <div class="loader-content">
+
+        <img src="data/glogo.png" alt="School Logo">
+
+        <h2>GENIAL LAUREL SCHOOL</h2>
+
+        <p>Loading School Portal...</p>
+
+        <div class="loading-bar">
+
+            <div class="loading-progress"></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+                BACKGROUND
+=========================================== -->
+
+<div class="background-overlay"></div>
+
+<div class="floating-shapes">
+
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+
+</div>
+
+<!-- ==========================================
+                MAIN CONTAINER
+=========================================== -->
+
+<div class="container">
+
+    <!-- Header -->
+
+    <header>
+
+        <div class="logo-box">
+
+            <img src="data/glogo.png" alt="School Logo">
+
+        </div>
+
+        <h1>GENIAL LAUREL SCHOOL</h1>
+
+        <p>
+            Learning Today...
+            <br>
+            Leading Tomorrow.
+        </p>
+
+    </header>
+
+    <!-- Welcome -->
+
+    <section class="welcome">
+
+        <h2>Welcome to the School Portal</h2>
+
+        <p>
+
+            Select a department below to continue.
+
+        </p>
+
+    </section>
+
+    <!-- Navigation -->
+
+    <nav class="menu">
+
+        <a href="index.html">
+
+            <i class="fas fa-house"></i>
+
+            <span>Home</span>
+
+        </a>
+
+        <a href="Adnin-entry.html ">
+
+            <i class="fas fa-users"></i>
+
+            <span>Administration Board</span>
+
+        </a>
+
+        <a href="Teachers.html">
+
+            <i class="fas fa-chalkboard-teacher"></i>
+
+            <span>Teaching Staff</span>
+
+        </a>
+
+        <a href="management.html">
+
+            <i class="fas fa-user-tie"></i>
+
+            <span>Management</span>
+
+        </a>
+
+        <a href="parent-stakeholder.html">
+
+            <i class="fas fa-people-group"></i>
+
+            <span>Parents / Stakeholders</span>
+
+        </a>
+
+        <a href="students.html">
+
+            <i class="fas fa-user-graduate"></i>
+
+            <span>Students</span>
+
+        </a>
+
+        <a href="PTA.html">
+
+            <i class="fas fa-handshake"></i>
+
+            <span>P.T.A.</span>
+
+        </a>
+
+        <a href="Non-teaching.html">
+
+            <i class="fas fa-briefcase"></i>
+
+            <span>Non-Teaching Staff</span>
+
+        </a>
+
+        <a href="General.html">
+
+            <i class="fas fa-building"></i>
+
+            <span>General Staff</span>
+
+        </a>
+
+        <a href="School-Channels.html">
+
+            <i class="fas fa-bullhorn"></i>
+
+            <span>School Channels</span>
+
+        </a>
+
+        <a href="School-Log-Book.html">
+
+            <i class="fas fa-book-open"></i>
+
+            <span>School Log Book</span>
+
+        </a>
+
+    </nav>
+
+</div>
+
+<!-- ==========================================
+                FOOTER
+=========================================== -->
+
+<footer>
+
+    <p>
+
+        © 2026 Genial Laurel School.
+
+        All Rights Reserved.
+
+    </p>
+
+</footer>
+
+<!-- JavaScript -->
+
+<script>
+/*==========================================
+        PAGE LOADER
+==========================================*/
+
+window.addEventListener("load", () => {
+
+    const loader = document.getElementById("loader");
+
+    setTimeout(() => {
+
+        loader.style.opacity = "0";
+        loader.style.visibility = "hidden";
+
+        document.body.classList.add("loaded");
+
+    }, 2200);
+
+});
+
+
+/*==========================================
+        MENU ANIMATION
+==========================================*/
+
+const menuItems = document.querySelectorAll(".menu a");
+
+menuItems.forEach((item, index) => {
+
+    item.style.opacity = "0";
+    item.style.transform = "translateY(40px)";
+
+    setTimeout(() => {
+
+        item.style.transition = ".7s ease";
+
+        item.style.opacity = "1";
+        item.style.transform = "translateY(0px)";
+
+    }, 300 + (index * 120));
+
+});
+
+
+/*==========================================
+          FLOATING LOGO
+==========================================*/
+
+const logo = document.querySelector(".logo-box img");
+
+if (logo) {
+
+    let angle = 0;
+
+    setInterval(() => {
+
+        angle += 0.03;
+
+        logo.style.transform = `translateY(${Math.sin(angle) * 8}px)`;
+
+    }, 20);
+
+}
+
+
+/*==========================================
+        RIPPLE EFFECT
+==========================================*/
+
+menuItems.forEach(button => {
+
+    button.addEventListener("click", function (e) {
+
+        const ripple = document.createElement("span");
+
+        ripple.className = "ripple";
+
+        const rect = this.getBoundingClientRect();
+
+        ripple.style.left = (e.clientX - rect.left) + "px";
+        ripple.style.top = (e.clientY - rect.top) + "px";
+
+        this.appendChild(ripple);
+
+        setTimeout(() => {
+
+            ripple.remove();
+
+        }, 700);
+
+    });
+
+});
+
+
+/*==========================================
+        MOUSE PARALLAX
+==========================================*/
+
+document.addEventListener("mousemove", e => {
+
+    const shapes = document.querySelectorAll(".floating-shapes span");
+
+    const x = e.clientX / window.innerWidth;
+    const y = e.clientY / window.innerHeight;
+
+    shapes.forEach((shape, index) => {
+
+        const speed = (index + 1) * 8;
+
+        shape.style.transform =
+            `translate(${x * speed}px, ${y * speed}px)`;
+
+    });
+
+});
+
+
+/*==========================================
+        HEADER ANIMATION
+==========================================*/
+
+const header = document.querySelector("header");
+
+if (header) {
+
+    header.style.opacity = "0";
+    header.style.transform = "translateY(-50px)";
+
+    setTimeout(() => {
+
+        header.style.transition = "1s";
+
+        header.style.opacity = "1";
+        header.style.transform = "translateY(0)";
+
+    }, 600);
+
+}
+
+
+/*==========================================
+        WELCOME ANIMATION
+==========================================*/
+
+const welcome = document.querySelector(".welcome");
+
+if (welcome) {
+
+    welcome.style.opacity = "0";
+    welcome.style.transform = "translateY(40px)";
+
+    setTimeout(() => {
+
+        welcome.style.transition = "1s";
+
+        welcome.style.opacity = "1";
+
+        welcome.style.transform = "translateY(0px)";
+
+    }, 1200);
+
+}
+
+
+/*==========================================
+        SCROLL ANIMATION
+==========================================*/
+
+const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+},{
+    threshold:0.2
+});
+
+document.querySelectorAll(".menu a").forEach(item=>{
+
+    observer.observe(item);
+
+});
+
+
+/*==========================================
+        CONSOLE MESSAGE
+==========================================*/
+
+console.log("%c🎓 Welcome to Genial Laurel School Portal",
+"color:gold;font-size:18px;font-weight:bold;");
+
+console.log("%cDesigned by JAJAMANE-CHARLIE TECH",
+"color:skyblue;font-size:14px;font-weight:bold;");
+
+</script>
+
+</body>
+</html>

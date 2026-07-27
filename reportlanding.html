@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Report slip portal</title>
+    <link rel="stylesheet" href="reportlanding.css">
+  </head>
+  <body>
+  <div class="container">
+    <a href="index.html" class="back-btn">← Back to Home</a>
+
+    <div class="payment-box">
+      <h2>Result Checker Portal</h2>
+
+      <p>
+        Welcome to the Student Result Checker Portal.
+        Enter your valid Result Checker PIN/Code below to access your examination result.
+      </p>
+
+      <p class="note">
+        <strong>Note:</strong> Each Result Checker PIN can only be used according to the school's policy. If you do not have a valid PIN or experience any issues, please contact the school administration for assistance.
+      </p>
+    </div>
+
+    <hr />
+
+    <div class="checker-box">
+      <h3>Check Your Result</h3>
+
+      <p>Please enter your Result Checker PIN/Code below:</p>
+      
+        <input type="text" id="code" placeholder="Enter your result code" />
+        <button onclick="checkResult()">Check Result</button>
+      
+      </div>
+    </div>
+
+    <script>
+const results = {
+  "Yims001a": "GodwinFrance.html",
+  "Yims002o": "nursery1afeezsharon.html",
+  "Yims003p": "bankolesamuel.html",
+  "Yims004j":"imojieTahilah.html",
+  "Yims005n": "ochedelight.html",
+  "Yims&sy": "mohammedmicehell.html",
+  "Yims&sx": "davidabraham.html",
+  "Yims&sj": "godwinawesome.html",
+  "Yims&sk": "olanrewajuoba.html",
+  "Yims&so": "dikejayamma .html",
+  "Yims&sk": "smartelijah.html",
+  "Yims&sf":"chinomso.html",
+  "YIMS&SV":"ChigozirimchukuMichael.html",
+  "Yims&sb": "UGOCHUKWULIGHT.html",
+  "Yims&sm@": "Smartmiracle.html",
+  "Yims&sc":"OJONUGWOTREASURE.html",
+  "Yims&sb1":"ADENIYIGREATNESS.html",
+  "Yims&sh":"emakagrace.html",
+   "Yims&sh009":"NURUDEENHALIMA .html",
+   "Yims&sa12":"IMOJIEAIZENOFE.html",
+   "Yims&st009":"afeezbsharon.html",
+   "Yims&s081":"henrymichael.html",
+   "Yims&s082n":"ADENIYIZION.html",
+   "Yims&s095y":"ajaoiyanuoluwa.html",
+   "Yims&sok!":"GODWINEMMANUEL.html",
+   "Yims&Sdl0":"AWOYODEMATTHEW.html",
+   "Yims&sbp02":"ADEMOLUNIFEMI.html",
+   "Yims&sHdf009":"NWOBODOKAMSI.html",
+   "Yims&sf235":"olukoyaesther.html",
+   "Yims&sJ009":"oshikoyaJoshua.html",
+   "YIMS&SO007":"martinscheris.html",
+   "Yims&snop":"otublessing.html",
+   "Yims&skop":"HENRYMICHELLE.html",
+   "Yims&sqwe1":"AmbroseRebecca.html",
+   "Yims&Sisnf001":"hillarydelight.html",
+   "Yims&slove1":"OJONUGWAWEALTH.html",
+   "Yims&spotw":"OJONUGWAPROSPER.html",
+   "Yims&sisnffa":"EMMANUELFAVOUR.html",
+   "Yims&sihnogbh":"JacobTobi.html",
+    "Yims&sifnogbH1":"EmekaGift.html",
+    "Yims&sishfwmwdtm":" EKOBAFELIX.html",
+    "Yims&sishfooo12":"Obasimavellous.html",
+    "Yims&ash009#":"AdemyiGreatness.html",
+    "Yims&sho561":"desmondfriday.html",
+    "Yims&stops":"BankoleDaniel.html",
+    "Yims&sopend":"HinwyedoMatthew.html",
+    "Yims%sspeed@":"Olorundareoluwatobi.html",
+    "Yims&s%@Jesus":"EKOBAMITCHEL.html",
+    "Yimh&swsif@":"CHUKUWUDIVINE.html",
+    "Yims&sKonionia":"DannyFavour.html",
+    "Yimhs&bsK":"OCHIGBOEMMANUEL.html",
+    "Yims%bwsif008":"ChizoramChinneye.html",
+    "Yimsas+bwsif":"ajawodocus.html",
+    "Yims&bwsiff004":"MARTINS-CHERILYN.html",
+    "Yims&dgoo05%":"NwobodoKamsi.html",
+    "Yims&showsif003":"VICTORENO.html",
+     "Yims&BIlnbafowmcdtm":"VICTOREMMANUEL.html",
+     "Yims&sisnbaom":"TIJANIMARTINS.html",
+     "Yimsambmvph1":"TAIWOOLALEREMARVELLOUS.html",
+     "Yims&phimsitot":"SMARTTOBI.html",
+     "Yims&sforevermore":"OSHIKOYASAMUEL.html",
+     "Yims&sampey":"OKWUDILIVICTORY.html",
+    "Yims&snafemi":"OKWUDILIJOEL.html",
+    "YIMS&FOWSIBAFO":"OCHIGBOFAVOUR.html",
+    "Yims&sAMphioton004":"OBIYANMIRACLE.html",
+    "Yimsasabwsif":"LATOYAARCHER.html",
+    "YIMRAFOWSIBAFNO&":"JOSEPHINEGODWIN.html",
+    "YIMBSSCLKE+more...":"INYAMAOLIVIA.html",
+    "Yimsabowsif%^#":"HASSANPRAISE.html",
+    "YimsabowsifHEismyGOATforever!":"GRACEEFFIONG.html",
+    "Yimsssasowsibafo":"EBIJIMIIREMIDESUCCESS.html",
+    "YIMSASCHMMAKFOREVER":"DAMILOLADEMOLA.html",
+    "Yimegrforever!":"AJAOIYANUOLUWA.html",
+     "Yimrastakokiamgwsila&dfoever!":"ABRAHAMJOSHUA.html",
+     
+ 
+
+
+};
+
+function checkResult() {
+  let code = document.getElementById("code").value.trim();
+
+  if (results[code]) {
+    window.location.href = results[code];
+  } else {
+    alert("Invalid code or payment not confirmed");
+  }
+}
+</script>
+    </div>
+  </body>
+</html>

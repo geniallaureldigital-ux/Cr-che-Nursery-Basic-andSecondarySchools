@@ -1,0 +1,534 @@
+
+.top-buttons{
+    width:794px;      /* same width as A4 page */
+    margin:20px auto 10px;
+    display:flex;
+    justify-content:flex-start;
+}
+
+.close-btn{
+    background:#0d47a1;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+}
+/* =====================================
+   PAGE SETTINGS
+===================================== */
+
+@page{
+    size:A4 landscape;
+    margin:5mm;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#ececec;
+    padding:15px;
+}
+
+.container{
+    width:1123px;
+    min-height:794px;
+    margin:auto;
+    background:#fff;
+    border:2px solid #0b2d69;
+    padding:10px;
+    position:relative;
+}
+
+/* =====================================
+   PRINT BUTTON
+===================================== */
+
+.top-bar{
+    text-align:right;
+    margin-bottom:8px;
+}
+
+.print-btn{
+    background:#1f7a1f;
+    color:#fff;
+    border:none;
+    padding:8px 18px;
+    cursor:pointer;
+    border-radius:4px;
+    font-size:14px;
+}
+
+.print-btn:hover{
+    background:#145214;
+}
+
+/* =====================================
+   HEADER
+===================================== */
+
+.header{
+    display:grid;
+    grid-template-columns:90px 1fr 90px;
+    align-items:center;
+    gap:15px;
+}
+
+.logo{
+    width:80px;
+}
+
+.school-details{
+    text-align:center;
+}
+
+.school-details h1{
+    font-size:28px;
+    color:#0b2d69;
+}
+
+.school-details h3{
+    font-size:18px;
+}
+
+.school-details p{
+    font-size:14px;
+}
+
+.passport{
+    width:80px;
+    height:95px;
+    border:2px solid #0b2d69;
+    object-fit:cover;
+}
+
+/* =====================================
+   STUDENT INFORMATION
+===================================== */
+
+.student-info{
+
+    margin-top:5mm;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:5px;
+
+}
+
+.student-info div{
+
+    border:1px solid #aaa;
+
+    padding:5px;
+
+    font-size:11px;
+
+    background:#fafafa;
+
+}
+
+/* =====================================
+   RESULT BODY
+===================================== */
+
+.result-body{
+
+    display:grid;
+
+    grid-template-columns:77% 17.4%;
+
+    gap:8px;
+
+    margin-top:8px;
+
+}
+
+/* =====================================
+   SECTION TITLES
+===================================== */
+
+.academic-section h3,
+.domain-box h3,
+.summary-box h3{
+
+    background:#0b2d69;
+
+    color:white;
+
+    text-align:center;
+
+    padding:6px;
+
+    font-size:13px;
+
+}
+
+/* =====================================
+   SUBJECT TABLE
+===================================== */
+
+.subject-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    font-size:10px;
+
+}
+
+.subject-table th{
+
+    background:#0b2d69;
+
+    color:#fff;
+
+    border:1px solid #000;
+
+    padding:5px;
+
+}
+
+.subject-table td{
+
+    border:1px solid #000;
+
+    padding:4px;
+
+    text-align:center;
+
+}
+
+.subject-table td:first-child{
+
+    text-align:left;
+
+    font-weight:bold;
+
+}
+
+/* =====================================
+   SIDE PANEL
+===================================== */
+
+.side-panel{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+/* =====================================
+   DOMAIN TABLES
+===================================== */
+
+
+.domain-table{
+
+    width: 230px;
+
+    border-collapse:collapse;
+
+    font-size:9px;
+
+}
+
+.domain-table th{
+
+    background:#dce7ff;
+
+    border:1px solid #000;
+
+    padding:2px 4px;
+
+}
+
+.domain-table td{
+
+    border:1px solid #000;
+
+    padding:2px 4px;
+
+}
+
+.domain-table td:last-child{
+
+    width: 35px;
+
+    text-align:center;
+
+    font-weight:bold;
+
+}
+.summary-box{
+    width: 230px;
+    
+}
+
+.summary-box h3{
+    background:#0b2d69;
+    color:#fff;
+    text-align:center;
+    padding:6px;
+    font-size:13px;
+}
+
+.summary-box table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:11px;
+}
+
+.summary-box td{
+    border:1px solid #000;
+    padding:2px 4px;
+}
+
+.summary-box td:last-child{
+    text-align:center;
+    font-weight:bold;
+}
+.summary-box{
+    margin-top:0;
+}
+
+.summary-box h3{
+    background:#0b2d69;
+    color:#fff;
+    text-align:center;
+    padding:6px;
+    font-size:13px;
+}
+
+.summary-box table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:0;
+}
+
+.summary-box td{
+    border:1px solid #000;
+    padding:5px;
+    font-size:10px;
+}
+/* =====================================
+   COMMENTS
+===================================== */
+.comments-section{
+    width:90%;
+    margin: 5px auto;
+}
+
+.comment-box{
+    margin-bottom:3px;
+    border:1px solid #999;
+}
+
+.comment-box h3{
+    background:#0b2d69;
+    color:#fff;
+    padding:6px;
+    text-align:center;
+    font-size:13px;
+}
+
+.comment-box p{
+    min-height:30px;
+    padding:8px;
+    font-size:11px;
+    line-height:1.5;
+}
+
+/* =====================================
+   SIGNATURES
+===================================== */
+.signature-section{
+
+    width:70%;
+
+    margin:10px auto;
+
+    display:flex;
+
+    justify-content:space-around;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+.signature-box{
+
+    width:220px;
+
+}
+
+.signature{
+
+    width:90px;
+
+    height:45px;
+
+    object-fit:contain;
+
+}
+
+.signature-box hr{
+
+    border:1px solid #000;
+
+    margin:6px 0;
+
+}
+
+.signature-box h4{
+
+    color:#0b2d69;
+
+    margin:4px 0;
+
+    font-size:13px;
+
+}
+
+.signature-box p{
+
+    font-size:12px;
+
+}
+
+
+/* =====================================
+   RATING GUIDE
+===================================== */
+.rating-guide{
+
+    width:60%;
+
+    margin:15px auto;
+
+    text-align:center;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    border-top:1px solid #999;
+
+    padding-top:8px;
+
+}
+
+
+/* =====================================
+   WATERMARK
+===================================== */
+
+.container::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:url("../data/logo.png") center no-repeat;
+
+    background-size:280px;
+
+    opacity:.04;
+
+    pointer-events:none;
+
+}
+
+/* =====================================
+   PRINT
+===================================== */
+
+@media print{
+
+    body{
+
+        background:white;
+
+        padding:0;
+
+    }
+
+    .top-bar{
+
+        display:none;
+
+    }
+
+    .container{
+
+        width:100%;
+
+        border:none;
+
+        margin:0;
+
+        padding:5px;
+
+    }
+
+}/*==========================
+TOP BUTTON
+==========================*/
+
+.top-buttons{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    padding:15px 20px;
+
+}
+
+.close-btn{
+
+    background:#0d47a1;
+
+    color:#fff;
+
+    border:none;
+
+    padding:12px 22px;
+
+    border-radius:8px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.close-btn:hover{
+
+    background:#1565c0;
+
+    transform:translateY(-2px);
+
+}
+
+.close-btn i{
+
+    margin-right:8px;
+
+}

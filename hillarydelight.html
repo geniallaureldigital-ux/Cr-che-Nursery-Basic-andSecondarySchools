@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Genial Laurel School - Assessment Sheet</title>
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <style>
+        .top-buttons{
+    width:794px;      /* same width as A4 page */
+    margin:20px auto 10px;
+    display:flex;
+    justify-content:flex-start;
+}
+
+.close-btn{
+    background:#0d47a1;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+}
+        /*==========================
+TOP BUTTON
+==========================*/
+
+.top-buttons{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    padding:15px 20px;
+
+}
+
+.close-btn{
+
+    background:#0d47a1;
+
+    color:#fff;
+
+    border:none;
+
+    padding:12px 22px;
+
+    border-radius:8px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.close-btn:hover{
+
+    background:#1565c0;
+
+    transform:translateY(-2px);
+
+}
+
+.close-btn i{
+
+    margin-right:8px;
+
+}
+       /* ==========================================
+   GENIAL LAUREL SCHOOL REPORT SHEET
+   ========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f2f2f2;
+    padding:20px;
+    color:#000;
+    font-size:12px;
+}
+
+.report-container{
+    width:210mm;
+    min-height:297mm;
+    margin:auto;
+    background:#fff;
+    border:2px solid #000;
+    padding:15px;
+}
+
+/*==================================
+            HEADER
+==================================*/
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:2px solid #000;
+    padding-bottom:10px;
+    margin-bottom:12px;
+}
+
+.school-logo{
+    width:95px;
+    height:95px;
+}
+
+.school-logo img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.school-info{
+    flex:1;
+    text-align:center;
+}
+
+.school-info h1{
+    font-size:30px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.school-info p{
+    margin:3px 0;
+    font-size:13px;
+}
+
+.sheet-title{
+    display:inline-block;
+    margin-top:8px;
+    border:2px solid #000;
+    padding:5px 25px;
+    font-weight:bold;
+    font-size:18px;
+}
+
+.student-passport{
+    width:95px;
+    height:120px;
+    border:2px solid #000;
+}
+
+.student-passport img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/*==================================
+        STUDENT DETAILS
+==================================*/
+
+.meta-info{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:15px;
+}
+
+.meta-left,
+.meta-right{
+    width:48%;
+}
+
+.meta-left p,
+.meta-right p{
+    margin-bottom:8px;
+}
+
+.handwritten{
+    font-family:"Comic Sans MS", cursive;
+    font-weight:bold;
+}
+
+.roll-box{
+    border:1px solid #000;
+    padding:5px;
+    margin-bottom:8px;
+    display:inline-block;
+}
+
+/*==================================
+        GENERAL TABLE
+==================================*/
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-bottom:12px;
+}
+
+table th,
+table td{
+    border:1px solid #000;
+    padding:5px;
+    text-align:center;
+    vertical-align:middle;
+}
+
+table th{
+    background:#efefef;
+    font-weight:bold;
+}
+
+.left-align{
+    text-align:left;
+}
+
+/*==================================
+        ATTENDANCE
+==================================*/
+
+.attendance-wrapper{
+    margin-bottom:15px;
+}
+
+.attendance-table td{
+    height:28px;
+}
+
+.attendance-table th{
+    background:#d9d9d9;
+}
+
+/*==================================
+      COGNITIVE TABLE
+==================================*/
+
+tbody tr td:first-child{
+    text-align:left;
+    font-weight:bold;
+}
+
+thead th{
+    font-size:11px;
+}
+
+/*==================================
+      BOTTOM SECTION
+==================================*/
+
+.bottom-section{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    margin-top:15px;
+}
+
+.bottom-left,
+.bottom-right{
+    width:49%;
+}
+
+/*==================================
+      SCALE BOX
+==================================*/
+
+.scale-box{
+    margin-top:8px;
+    border:1px solid #000;
+    padding:8px;
+    font-size:11px;
+    line-height:1.5;
+}
+
+/*==================================
+      COMMENTS
+==================================*/
+
+.comments-section{
+    margin-top:20px;
+    border-top:2px solid #000;
+    padding-top:15px;
+}
+
+.comments-section p{
+    margin-bottom:10px;
+    line-height:1.6;
+}
+
+/*==================================
+      SIGNATURES
+==================================*/
+
+.signature-line{
+    display:flex;
+    justify-content:space-between;
+    margin-top:25px;
+    gap:30px;
+}
+
+.signature-line div{
+    width:48%;
+}
+
+.promoted-stamp{
+    margin-top:25px;
+    display:inline-block;
+    border:2px solid #000;
+    padding:8px 20px;
+    font-weight:bold;
+    text-align:center;
+}
+
+/*==================================
+        PRINT
+==================================*/
+
+@page{
+    size:A4 portrait;
+    margin:8mm;
+}
+
+@media print{
+
+    body{
+        background:#fff;
+        padding:0;
+    }
+
+    .report-container{
+        width:100%;
+        border:none;
+        margin:0;
+        padding:0;
+    }
+
+    table{
+        page-break-inside:avoid;
+    }
+
+    .bottom-section{
+        page-break-inside:avoid;
+    }
+
+    .comments-section{
+        page-break-inside:avoid;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="top-buttons">
+
+    <button onclick="closeResult()" class="close-btn">
+
+        <i class="fa-solid fa-xmark"></i>
+
+        Close Result
+
+    </button>
+
+</div>
+
+<div class="report-container">
+
+ <!-- ================= HEADER ================= -->
+
+<div class="header">
+
+    <!-- School Logo -->
+    <div class="school-logo">
+        <img src="data/glogo.png" alt="School Logo">
+    </div>
+
+    <!-- School Information -->
+    <div class="school-info">
+        <h1>GENIAL LAUREL SCHOOL</h1>
+        <p>45/47, ONOSA ROAD, IBEJU-LEKKI, LAGOS STATE</p>
+        <p>EMAIL: geniallaurelschools@gmail.com</p>
+
+        <div class="sheet-title">
+            ASSESSMENT SHEET
+        </div>
+    </div>
+
+    <!-- Student Passport -->
+    <div class="student-passport">
+        <img src="data/BASIC 2 HILLARYDELLIT.png" alt="Student Passport">
+    </div>
+
+</div>
+<!-- ================= STUDENT DETAILS ================= -->
+
+<div class="meta-info">
+
+    <div class="meta-left">
+
+        <p><strong>ACADEMIC SESSION:</strong> 2025/2026</p>
+
+        <p>
+            <strong>STUDENT'S NAME:</strong>
+            <span class="handwritten">Hillary De lite</span>
+        </p>
+
+        <p>
+            <strong>RESUMPTION DATE:</strong>
+            <span class="handwritten">14th Sept. 2026</span>
+        </p>
+
+    </div>
+
+    <div class="meta-right">
+
+        <p>
+            <strong>CLASS:</strong>
+            <span class="handwritten">BASIC 2</span>
+        </p>
+
+        <div class="roll-box">
+            <strong>No Of Roll:</strong>
+            <span class="handwritten">16</span>
+        </div>
+
+        <p>
+            <strong>ADMISSION NO:</strong>
+            <span class="handwritten">102</span>
+        </p>
+
+    </div>
+
+</div>
+
+<!-- ================= ATTENDANCE ================= -->
+
+<div class="attendance-wrapper">
+
+    <table class="attendance-table">
+
+        <tr>
+            <th colspan="2" class="left-align">
+                1. ATTENDANT
+            </th>
+        </tr>
+
+        <tr>
+            <td class="left-align">FREQUENCIES</td>
+            <td><strong>MARK OBTAINABLE</strong></td>
+        </tr>
+
+        <tr>
+            <td class="left-align">NO OF TIMES SCHOOL OPENED</td>
+            <td class="handwritten">1,200</td>
+        </tr>
+
+        <tr>
+            <td class="left-align">NO OF TIMES PRESENT</td>
+            <td class="handwritten">84</td>
+        </tr>
+
+        <tr>
+            <td class="left-align">MARK OBTAINED</td>
+            <td class="handwritten">1,004</td>
+        </tr>
+
+        <tr>
+            <td class="left-align">PERCENTAGE</td>
+            <td class="handwritten">84%</td>
+        </tr>
+
+        <tr>
+            <td class="left-align">POSITION</td>
+            <td class="handwritten">-</td>
+        </tr>
+
+        <tr>
+            <td class="left-align">REMARKS</td>
+            <td class="handwritten">V. Good</td>
+        </tr>
+
+    </table>
+
+</div>
+
+    <!-- Cognitive Ability Table -->
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2" style="width: 30%;" class="left-align">2. COGNITIVE ABILITY</th>
+                <th colspan="2">1ST TEST</th>
+                <th colspan="2">2ND TEST</th>
+                <th colspan="2">EXAM</th>
+                <th rowspan="2">TOTAL</th>
+                <th rowspan="2">CLASS TEACHER'S REMARK</th>
+            </tr>
+            <tr>
+                <th>MARKS OBTAINABLE</th>
+                <th>MARKS OBTAINED</th>
+                <th>MARKS OBTAINABLE</th>
+                <th>MARKS OBTAINED</th>
+                <th>MARKS OBTAINABLE</th>
+                <th>MARKS OBTAINED</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="left-align">ENGLISH LANGUAGE</td>
+                <td>20</td><td>10</td><td>20</td><td>16</td><td>60</td><td>34</td><td>60</td><td>Good</td>
+            </tr>
+            <tr>
+                <td class="left-align">LITERATURE IN ENGLISH</td>
+                <td>20</td><td>16</td><td>20</td><td>16</td><td>60</td><td>54</td><td>86</td><td>Excellent</td>
+            </tr>
+            <tr>
+                <td class="left-align">PRE VOCATIONAL STUDIES</td>
+                <td>20</td><td>15</td><td>20</td><td>16</td><td>60</td><td>54</td><td>85</td><td>Excellent</td>
+            </tr>
+            <tr>
+                <td class="left-align">COMPUTER SCIENCE</td>
+                <td>20</td><td>19</td><td>20</td><td>18</td><td>60</td><td>50</td><td>93</td><td>V. Good</td>
+            </tr>
+            <tr>
+                <td class="left-align">BASIC SCIENCE AND TECHNOLOGY</td>
+                <td>20</td><td>14</td><td>20</td><td>13</td><td>60</td><td>56</td><td>83</td><td>Excellent</td>
+            </tr>
+            <tr>
+                <td class="left-align">MATHEMATICS</td>
+                <td>20</td><td>10</td><td>20</td><td>16</td><td>60</td><td>58</td><td>84</td><td>Excellent</td>
+            </tr>
+            <tr>
+                <td class="left-align">QUANTITATIVE</td>
+                <td>20</td><td>14</td><td>20</td><td>15</td><td>60</td><td>58</td><td>87</td><td>Excellent</td>
+            </tr>
+            <tr>
+                <td class="left-align">VERBAL APPTITUDE</td>
+                <td>20</td><td>18</td><td>20</td><td>16</td><td>60</td><td>48</td><td>82</td><td>Excellent</td>
+            </tr>
+            <tr>
+                <td class="left-align">CREATIVE ARTS/DRAWING</td>
+                <td>20</td><td>14</td><td>20</td><td>14</td><td>60</td><td>45</td><td>73</td><td>V. Good</td>
+            </tr>
+            <tr>
+                <td class="left-align">HAND-WRITING</td>
+                <td>20</td><td>19</td><td>20</td><td>20</td><td>60</td><td>59</td><td>98</td><td>Excellent</td>
+            </tr>
+            <tr>
+                <td class="left-align">C.R.S</td>
+                <td>20</td><td>13</td><td>20</td><td>12</td><td>60</td><td>58</td><td>82</td><td>V. Good</td>
+            </tr>
+            <tr>
+                <td class="left-align">N.V.E</td>
+                <td>20</td><td>15</td><td>20</td><td>19</td><td>60</td><td>54</td><td>88</td><td>Excellent</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Bottom Section: Skills -->
+    <div class="bottom-section">
+        <!-- Psychomotor Skills -->
+        <div class="bottom-left">
+            <table>
+                <tr>
+                    <th class="left-align">3. PSYCHOMOTOR SKILLS</th>
+                    <th>5</th><th>4</th><th>3</th><th>2</th><th>1</th>
+                </tr>
+                <tr><td class="left-align">Hand writing</td><td></td><td></td><td>✓</td><td></td><td></td></tr>
+                <tr><td class="left-align">Verbal frequency</td><td></td><td></td><td>✓</td><td></td><td></td></tr>
+                <tr><td class="left-align">Games</td><td></td><td></td><td>✓</td><td></td><td></td></tr>
+                <tr><td class="left-align">Sports</td><td></td><td></td><td>✓</td><td></td><td></td></tr>
+                <tr><td class="left-align">Handling Tools</td><td></td><td></td><td>✓</td><td></td><td></td></tr>
+                <tr><td class="left-align">Drawing & Painting</td><td></td><td></td><td>✓</td><td></td><td></td></tr>
+            </table>
+            <div class="scale-box">
+                <strong>SCALE:</strong> 85-100 (Excellent) | 70-84 (V.Good) | 60-69 (Good) | 50-59 (Fair) | 40-49 (Poor) | 30-0 (Poor)
+            </div>
+        </div>
+
+        <!-- Affective Areas -->
+        <div class="bottom-right">
+            <table>
+                <tr>
+                    <th class="left-align">4. AFFECTIVE AREAS</th>
+                    <th>5</th><th>4</th><th>3</th><th>2</th><th>1</th>
+                </tr>
+                <tr><td class="left-align">Punctuality</td><td></td><td></td><td>✓</td><td></td><td></td></tr>
+                <tr><td class="left-align">Neatness</td><td></td><td></td><td>✓</td><td></td><td></td></tr>
+                <tr><td class="left-align">Politeness</td><td></td><td></td><td>✓</td><td></td><td></td></tr>
+                <tr><td class="left-align">Cooperation with Others</td><td></td><td></td><td>✓</td><td></td><td></td></tr>
+                <tr><td class="left-align">Leadership</td><td></td><td></td><td>✓</td><td></td><td></td></tr>
+                <tr><td class="left-align">Helping Other</td><td></td><td></td><td>✓</td><td></td><td></td></tr>
+                <tr><td class="left-align">Emotional Stability</td><td></td><td></td><td>✓</td><td></td><td></td></tr>
+                <tr><td class="left-align">Attentiveness</td><td></td><td></td><td>✓</td><td></td><td></td></tr>
+                <tr><td class="left-align">Perseverance</td><td></td><td></td><td>✓</td><td></td><td></td></tr>
+                <tr><td class="left-align">Speaking/Handwriting</td><td></td><td></td><td>✓</td><td></td><td></td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Comments & Signatures -->
+    <div class="comments-section">
+        <p>Number of Pupils in Class: <strong>16</strong> &nbsp;&nbsp;&nbsp;&nbsp; Position in Class: <strong>-</strong></p>
+        <p>Class Teacher's Comment: <em>A brilliant performance. Keep it up!</em></p>
+        <p>Headmistress's / Headmistress's Comment: <em>A wonderful result, keep it up!</em></p>
+        
+        <div class="signature-line">
+            <div>
+                <p>Parent's Guardian's Comment: ........................................................</p>
+                <p>Signature: ...................................</p>
+            </div>
+            <div>
+                <p>Signature: ...................................</p>
+                <div class="promoted-stamp">PROMOTED TO BASIC 3</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script>
+
+function closeResult(){
+
+    // If the page was opened from the dashboard in a new tab,
+    // this closes it.
+    window.close();
+
+}
+
+</script>
+
+</body>
+</html>
