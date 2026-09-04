@@ -3308,3 +3308,169 @@ padding:70px 6%;
 }
 
 }
+/*=========================================
+WHATSAPP POPUP - MOBILE STYLES
+=========================================*/
+@media screen and (max-width: 576px) {
+    /* 1. Main Floating Container */
+    .whatsapp-popup {
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 88% !important;
+        max-width: 320px !important;
+        max-height: 85vh !important;
+        display: flex !important;
+        flex-direction: column !important;
+        background: #ffffff !important;
+        border-radius: 16px !important;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25) !important;
+        z-index: 999999 !important;
+        overflow: hidden !important;
+    }
+
+    /* 2. Header Layout */
+    .whatsapp-popup .popup-header {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 12px 14px !important;
+        background: #25d366 !important;
+        color: #ffffff !important;
+        flex-shrink: 0 !important;
+        position: relative !important;
+        z-index: 2 !important;
+    }
+
+    .whatsapp-popup .popup-header .profile {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+    }
+
+    /* 3. Close Button Target */
+    #closePopup {
+        background: rgba(0, 0, 0, 0.15) !important;
+        border: none !important;
+        color: #ffffff !important;
+        font-size: 22px !important;
+        line-height: 1 !important;
+        width: 32px !important;
+        height: 32px !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        cursor: pointer !important;
+        pointer-events: auto !important;
+        position: relative !important;
+        z-index: 9999999 !important;
+        margin-left: auto !important;
+        outline: none !important;
+        -webkit-tap-highlight-color: transparent !important;
+    }
+
+    /* 4. Scrollable Body Content */
+    .whatsapp-popup .popup-body {
+        padding: 16px !important;
+        overflow-y: auto !important;
+        flex: 1 1 auto !important;
+        color: #333333 !important;
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+    }
+
+    /* 5. Footer & Chat Button */
+    .whatsapp-popup .popup-footer {
+        padding: 12px 16px !important;
+        background: #f8f9fa !important;
+        flex-shrink: 0 !important;
+        text-align: center !important;
+    }
+
+    .whatsapp-popup .popup-footer a {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        background: #25d366 !important;
+        color: #ffffff !important;
+        text-decoration: none !important;
+        padding: 10px 16px !important;
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+        font-size: 15px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 6. Lower Floating WhatsApp Button */
+    .whatsapp-float {
+        position: fixed !important;
+        bottom: 20px !important;
+        right: 20px !important;
+        z-index: 99998 !important;
+    }
+}
+/*=========================================
+WHATSAPP POPUP & CLOSE GUARANTEED FIX
+=========================================*/
+.whatsapp-popup {
+    display: none;
+}
+
+.whatsapp-popup.show {
+    display: flex !important;
+    flex-direction: column;
+    position: fixed;
+    bottom: 90px;
+    right: 25px;
+    width: 330px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    z-index: 999999;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 576px) {
+    .whatsapp-popup.show {
+        top: 50% !important;
+        left: 50% !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: translate(-50%, -50%) !important;
+        width: 85% !important;
+        max-width: 310px !important;
+        height: auto !important;
+        max-height: 75vh !important;
+        z-index: 9999999 !important;
+    }
+
+    .whatsapp-popup .popup-header {
+        position: relative !important;
+        z-index: 10000000 !important;
+    }
+
+    #closePopup {
+        position: absolute !important;
+        top: 8px !important;
+        right: 8px !important;
+        z-index: 10000001 !important;
+        cursor: pointer !important;
+        pointer-events: auto !important;
+        background: rgba(0, 0, 0, 0.2) !important;
+        color: #ffffff !important;
+        font-size: 22px !important;
+        font-weight: bold !important;
+        width: 34px !important;
+        height: 34px !important;
+        line-height: 32px !important;
+        text-align: center !important;
+        border-radius: 50% !important;
+        display: block !important;
+        user-select: none !important;
+        -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+    }
+}

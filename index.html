@@ -6,15 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Genial Laurel School | Quality Education in Ibeju-Lekki, Lagos</title>
 
-<meta name="description" content="Genial Laurel School provides quality Nursery, Primary and Junior Secondary education in Ibeju-Lekki, Lagos State.">
 
 <meta name="keywords" content="Genial Laurel School, School in Ibeju Lekki, Nursery School, Primary School, Lagos School, Result Checker">
 
 <meta name="author" content="Genial Laurel School">
 
 <meta name="robots" content="index, follow">
-
-    <title>Genial Laurel Schools | Discovery • Direction • Distinction</title>
+ <title>| Discovery • Direction • Distinction</title>
 
     <meta name="description"
         content="Genial Laurel Schools - Integrating the Nigerian and Canadian Curriculum to raise confident, responsible and future-ready leaders.">
@@ -42,15 +40,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-
-
-   <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-</a>
-
+   
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="phone.css">
 
 </head>
 
@@ -123,6 +116,9 @@ HEADER
 <img src="data/glogo.png" alt="Genial Laurel Schools">
 
 </a>
+<button class="mobile-toggle" aria-label="Toggle Navigation">
+    <i class="fa-solid fa-bars"></i>
+</button>
 
 <nav>
 
@@ -132,7 +128,7 @@ HEADER
 
 <li><a href="#">About</a></li>
 
-<li><a href=" adminlandingpage.html   ">Academics</a></li>
+<li><a href="adminlandingpage.html">Academics</a></li>
 
 <li><a href="#">Admission</a></li>
 
@@ -167,7 +163,7 @@ Apply Now
 
     <video autoplay muted loop playsinline id="heroVideo">
 
-        <source src="data/heroclips.mp4" type="video/mp4">
+        <source src="data/eco.mp4" type="video/mp4">
 
     </video>
 
@@ -1982,18 +1978,11 @@ Empowering young minds today to become tomorrow's leaders.
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <!-- Initialize AOS & EmailJS -->
-<script>
-AOS.init({
-    duration: 1200,
-    once: true,
-    offset: 120,
-    easing: 'ease-in-out'
-});
 
-emailjs.init({
-    publicKey: "FBJ9ARJmU-lmiROI8"
-});
-</script>
+
+<!--=========================================
+WHATSAPP POPUP
+==========================================-->
 
 <!--=========================================
 WHATSAPP POPUP
@@ -2017,8 +2006,8 @@ WHATSAPP POPUP
 
         </div>
 
-        <button id="closePopup">&times;</button>
-
+        <!-- UPDATED CANCEL BUTTON HERE -->
+        <span id="closePopup" onclick="document.getElementById('whatsappPopup').style.cssText='display:none !important;';">&times;</span>
     </div>
 
 
@@ -2075,18 +2064,9 @@ WHATSAPP POPUP
 </a>
 
 
-
 <!-- Your Main JavaScript -->
 <script src="js/main.js"></script>
-
-
-
-
-
-
-
-
-
+<script src="js/phone.js"></script>
 
 
 </body>
