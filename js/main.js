@@ -319,20 +319,25 @@ WHATSAPP POPUP
 const whatsappPopup = document.getElementById("whatsappPopup");
 const closePopup = document.getElementById("closePopup");
 
-if (whatsappPopup && closePopup) {
-
+if (whatsappPopup) {
+    // Show popup after 8 seconds
     setTimeout(function () {
-
         whatsappPopup.classList.add("show");
-
     }, 8000);
+}
 
-    closePopup.addEventListener("click", function () {
-
+if (closePopup && whatsappPopup) {
+    const hidePopup = function (e) {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        whatsappPopup.style.cssText = "display: none !important;";
         whatsappPopup.classList.remove("show");
+    };
 
-    });
-
+    closePopup.addEventListener("click", hidePopup, true);
+    closePopup.addEventListener("touchstart", hidePopup, { passive: false });
 }
 /*=========================================
 BACK TO TOP BUTTON
